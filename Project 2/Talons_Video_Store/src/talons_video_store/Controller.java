@@ -20,7 +20,6 @@ public class Controller
     
     public Controller()
     {
-        String statement = "CREATE TABLE test;";
         
     }
     
