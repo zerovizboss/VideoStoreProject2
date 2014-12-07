@@ -5,28 +5,25 @@
  */
 package talons_video_store;
 import java.sql.*;
-import java.io.*;
+//import java.io.*;
 
         
 /**
  *
- * @author Donald
+ * @author Donald Dedman n00816280
  */
 public class Talons_Video_Store {
-
+    
     /**
      * @param args the command line arguments
      * @throws SQLException
+     * @throws ClassNotFoundException
      */
-    public static void main(String[] args) throws SQLException {
-        String driver = "com.mysql.jdbc.Driver";
-        String connection = "jdbc:mysql://23.229.180.72:3306/Video Store";
-        String user = "root";
-        String password = "root";
-        Class.forName(driver);
-        Connection con = DriverManager.getConnection(connection,user,password);
-        if(!con.isClosed()){
-            con.close();
-        }
-    }    
+    public static void main(String[] args) throws SQLException, ClassNotFoundException{
+        Controller ctlControl = new Controller();
+        ctlControl.SQLConnection();
+        //ctlControl.Excecute();
+    }
+    
+
 }
