@@ -6,26 +6,30 @@
 
 package talons_video_store;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.SQLException;
+//import java.sql.Statement
+import java.sql.*;
 
 /**
  *
- * @author Donny Dedman...n00816280
+ * @author Donny Dedman, Tim Folds and Ashley Barr
  */
 public class Controller 
 {
     
-    
+    Connection mySQLconn;
+    Statement stmt;
+    ResultSet rs;
     public Controller()
     {
-        
+        //Connection mySQLconn;
     }
     
     public void Excecute()
     {
-        //test creating database
+       
     }
     
     public void SQLConnection()
@@ -39,10 +43,13 @@ public class Controller
 
             //Load mySQL JDBC driver and connect
             Class.forName(driver);
-            Connection mySQLconn = DriverManager.getConnection(connection,user,password);
+            mySQLconn = DriverManager.getConnection(connection,user,password);
             if(!mySQLconn.isClosed()){
                 mySQLconn.close();
             }
+            stmt = mySQLconn.createStatement();
+            rs = stmt.executeQuery("select * from customer");
+            System.out.println(rs);
         }
         catch (SQLException sqlExc){   
             System.out.println("SQLException Error" + sqlExc);
